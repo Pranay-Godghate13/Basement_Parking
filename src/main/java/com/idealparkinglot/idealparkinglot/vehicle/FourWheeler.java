@@ -2,15 +2,15 @@ package com.idealparkinglot.idealparkinglot.vehicle;
 
 public class FourWheeler extends Vehicle {
     int id;
-    String name;
-    public FourWheeler(int id,String name)
+    String type="FourWheeler";
+    public FourWheeler(int id)
     {
         this.id=id;
-        this.name=name;
+        
     }
     @Override
     public void vehicleDetail() {
-        System.out.println("Vehicle is "+this.name+" and id is "+this.id);
+        System.out.println("Vehicle is "+type+" and id is "+this.id);
     }
     
 }

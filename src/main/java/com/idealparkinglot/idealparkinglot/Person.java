@@ -7,7 +7,7 @@ public class Person {
     private Vehicle vehicle;
     public Person(VehicleFactory vehicleFactory,int id,String name)
     {
-        vehicle=vehicleFactory.createVehicle(id, name);
+        vehicle=vehicleFactory.createVehicle(id);
     }
     public Vehicle getVehicle()
     {

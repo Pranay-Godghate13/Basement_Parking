@@ -1,4 +1,4 @@
-package com.idealparkinglot.idealparkinglot.ParkingSpot;
+package com.idealparkinglot.idealparkinglot.parkingSpot;
 
 public class TwoWheelerParkingSpot extends ParkingSpot {
     public TwoWheelerParkingSpot(double price)

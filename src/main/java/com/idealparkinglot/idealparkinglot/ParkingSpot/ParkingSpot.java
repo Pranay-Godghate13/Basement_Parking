@@ -1,4 +1,4 @@
-package com.idealparkinglot.idealparkinglot.ParkingSpot;
+package com.idealparkinglot.idealparkinglot.parkingSpot;
 
 import com.idealparkinglot.idealparkinglot.vehicle.Vehicle;
 
