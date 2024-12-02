@@ -1,8 +1,8 @@
 package com.idealparkinglot.idealparkinglot;
 
-import com.idealparkinglot.idealparkinglot.vehicle.FourWheeler;
+//import com.idealparkinglot.idealparkinglot.vehicle.FourWheeler;
 import com.idealparkinglot.idealparkinglot.vehicle.FourWheelerFactory;
-import com.idealparkinglot.idealparkinglot.vehicle.TwoWheeler;
+//import com.idealparkinglot.idealparkinglot.vehicle.TwoWheeler;
 import com.idealparkinglot.idealparkinglot.vehicle.TwoWheelerFactory;
 import com.idealparkinglot.idealparkinglot.vehicle.Vehicle;
 import com.idealparkinglot.idealparkinglot.vehicle.VehicleFactory;
