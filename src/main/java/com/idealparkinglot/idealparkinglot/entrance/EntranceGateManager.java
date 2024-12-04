@@ -2,6 +2,7 @@ package com.idealparkinglot.idealparkinglot.entrance;
 
 import org.apache.logging.log4j.util.Constants;
 
+import com.idealparkinglot.idealparkinglot.parkingSpot.ParkingSpot;
 import com.idealparkinglot.idealparkinglot.parkingspotmanager.FourWheelerSpotManager;
 import com.idealparkinglot.idealparkinglot.parkingspotmanager.ParkingSpotManager;
 import com.idealparkinglot.idealparkinglot.parkingspotmanager.ParkingSpotManagerFactory;
@@ -14,20 +15,27 @@ public class EntranceGateManager {
     private Vehicle vehicle;
     private ParkingSpotManager parkingSpotManager;
     Ticket ticket;
+    ParkingSpot twoWheeler[];
+    ParkingSpot fourWheeler[];
    /*  public EntranceGateManager(Vehicle vehicle,ParkingSpotManagerFactory parkingSpotManagerFactory)
     {
         this.vehicle=vehicle;
         this.parkingSpotManager=parkingSpotManagerFactory.creatSpotManager();
     }*/
+    public EntranceGateManager(ParkingSpot twoWheeler[],ParkingSpot fourWheeler[])
+    {
+        this.twoWheeler=twoWheeler;
+        this.fourWheeler=fourWheeler;
+    }
     public void setVehicle(Vehicle vehicle)
     {
         this.vehicle=vehicle;
         switch (vehicle.getType()) {
             case "Two Wheeler":
-                setParkingSpotManager(new TwoWheelerSpotManager());
+                setParkingSpotManager(new TwoWheelerSpotManager(twoWheeler));
                 break;
             case "Four Wheeler":
-                setParkingSpotManager(new FourWheelerSpotManager());
+                setParkingSpotManager(new FourWheelerSpotManager(fourWheeler));
                 break;
             default:
                 break;
@@ -48,7 +56,7 @@ public class EntranceGateManager {
 
     public int findParkingSpace()
     {
-        int result=getParkingSpotManager().findParkingSpace();
+        int result=getParkingSpotManager().findParkingSpace(getVehicle());
         return result;
     }
     public void createTicket()

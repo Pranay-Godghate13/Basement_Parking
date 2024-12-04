@@ -1,6 +1,9 @@
 package com.idealparkinglot.idealparkinglot;
 
 import com.idealparkinglot.idealparkinglot.entrance.EntranceGateManager;
+import com.idealparkinglot.idealparkinglot.parkingSpot.FourWheelerParkingSpot;
+import com.idealparkinglot.idealparkinglot.parkingSpot.ParkingSpot;
+import com.idealparkinglot.idealparkinglot.parkingSpot.TwoWheelerParkingSpot;
 import com.idealparkinglot.idealparkinglot.parkingspotmanager.FourWheelerParkingSpotManagerFactory;
 import com.idealparkinglot.idealparkinglot.parkingspotmanager.TwoWheelerParkingSpotManagerFactory;
 import com.idealparkinglot.idealparkinglot.parkingspotmanager.TwoWheelerSpotManager;
@@ -16,8 +19,25 @@ public class ParkingLot {
     {
         VehicleFactory twoWheelerFactory=new TwoWheelerFactory();
         VehicleFactory fourWheelerFactory=new FourWheelerFactory();
-        EntranceGateManager gateManager=new EntranceGateManager();
-
+        
+        ParkingSpot twoWheelerParkingSpot=new TwoWheelerParkingSpot(10);
+        ParkingSpot fourWheelerParkingSpot=new FourWheelerParkingSpot(20);
+        
+        ParkingSpot twoWheelerSpots[]=new ParkingSpot[4];
+        ParkingSpot fourWheelerSpots[]=new ParkingSpot[2];
+        for(int i=0;i<twoWheelerSpots.length;i++)
+        {
+            twoWheelerSpots[i]=twoWheelerParkingSpot;
+            twoWheelerSpots[i].setId(i);
+            twoWheelerSpots[i].setIsEmpty(true);
+        }
+        for(int i=0;i<fourWheelerSpots.length;i++)
+        {
+            fourWheelerSpots[i]=fourWheelerParkingSpot;
+            fourWheelerSpots[i].setId(i);
+            fourWheelerSpots[i].setIsEmpty(true);
+        }
+        EntranceGateManager gateManager=new EntranceGateManager(twoWheelerSpots,fourWheelerSpots);
         Person twoWheelerClient=new Person(twoWheelerFactory, 123, "Splender");
         Vehicle twoWheeler=twoWheelerClient.getVehicle();
         

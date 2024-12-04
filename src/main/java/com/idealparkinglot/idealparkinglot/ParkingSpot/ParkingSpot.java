@@ -3,14 +3,11 @@ package com.idealparkinglot.idealparkinglot.parkingSpot;
 import com.idealparkinglot.idealparkinglot.vehicle.Vehicle;
 
 public class ParkingSpot {
-    int id;
+    private int id;
     Vehicle vehicle;
     double price;
-    boolean isEmpty;
-    public ParkingSpot(int id)
-    {
-        this.id=id;
-    }
+    private boolean isEmpty=false;
+    
     public ParkingSpot(double price)
     {
         this.price=price;
@@ -18,12 +15,28 @@ public class ParkingSpot {
     public void parkVehicle(Vehicle vehicle)
     {
         this.vehicle=vehicle;
-        isEmpty=false;
+        setIsEmpty(false);
     } 
     public void unparkVehicle()
     {
         this.vehicle=null;
-        isEmpty=true;
+        setIsEmpty(true);
+    }
+    public void setId(int id)
+    {
+        this.id=id;
+    }
+    public int getId()
+    {
+        return id;
+    }
+    public void setIsEmpty(boolean isEmpty)
+    {
+        this.isEmpty=isEmpty;
+    }
+    public boolean getIsEmpty()
+    {
+        return isEmpty;
     }
 
 }
