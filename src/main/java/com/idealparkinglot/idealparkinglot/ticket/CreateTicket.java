@@ -14,7 +14,7 @@ public class CreateTicket extends Ticket {
     }
     @Override
     public void createTicket(String id,int spot,Vehicle vehicle) {
-        System.out.println("The parking spot is "+spot);
+        System.out.println("Parking spot is "+spot+" for "+ vehicle.getType());
     }
     
 }

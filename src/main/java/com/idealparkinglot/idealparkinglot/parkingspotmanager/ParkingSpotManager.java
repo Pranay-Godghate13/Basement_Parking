@@ -16,8 +16,8 @@ public class ParkingSpotManager {
         int len=parkingSpots.length;
         for(int i=0;i<len;i++)
         {
-            if(parkingSpots[i]!=null)
-            return i;
+            if(parkingSpots[i]==null)
+            return i+1;
         }
         return -1;
     }

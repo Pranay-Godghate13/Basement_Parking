@@ -2,24 +2,53 @@ package com.idealparkinglot.idealparkinglot.entrance;
 
 import org.apache.logging.log4j.util.Constants;
 
+import com.idealparkinglot.idealparkinglot.parkingspotmanager.FourWheelerSpotManager;
 import com.idealparkinglot.idealparkinglot.parkingspotmanager.ParkingSpotManager;
 import com.idealparkinglot.idealparkinglot.parkingspotmanager.ParkingSpotManagerFactory;
+import com.idealparkinglot.idealparkinglot.parkingspotmanager.TwoWheelerSpotManager;
 import com.idealparkinglot.idealparkinglot.ticket.CreateTicket;
 import com.idealparkinglot.idealparkinglot.ticket.Ticket;
 import com.idealparkinglot.idealparkinglot.vehicle.Vehicle;
 
 public class EntranceGateManager {
-    Vehicle vehicle;
-    ParkingSpotManager parkingSpotManager;
+    private Vehicle vehicle;
+    private ParkingSpotManager parkingSpotManager;
     Ticket ticket;
-    public EntranceGateManager(Vehicle vehicle,ParkingSpotManagerFactory parkingSpotManagerFactory)
+   /*  public EntranceGateManager(Vehicle vehicle,ParkingSpotManagerFactory parkingSpotManagerFactory)
     {
         this.vehicle=vehicle;
         this.parkingSpotManager=parkingSpotManagerFactory.creatSpotManager();
+    }*/
+    public void setVehicle(Vehicle vehicle)
+    {
+        this.vehicle=vehicle;
+        switch (vehicle.getType()) {
+            case "Two Wheeler":
+                setParkingSpotManager(new TwoWheelerSpotManager());
+                break;
+            case "Four Wheeler":
+                setParkingSpotManager(new FourWheelerSpotManager());
+                break;
+            default:
+                break;
+        }
     }
+    public Vehicle getVehicle()
+    {
+        return vehicle;
+    }
+    public void setParkingSpotManager(ParkingSpotManager parkingSpotManager)
+    {
+        this.parkingSpotManager=parkingSpotManager;
+    }
+    public ParkingSpotManager getParkingSpotManager()
+    {
+        return parkingSpotManager;
+    }
+
     public int findParkingSpace()
     {
-        int result=parkingSpotManager.findParkingSpace();
+        int result=getParkingSpotManager().findParkingSpace();
         return result;
     }
     public void createTicket()
