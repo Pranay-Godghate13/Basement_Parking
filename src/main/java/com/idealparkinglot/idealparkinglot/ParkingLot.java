@@ -2,12 +2,14 @@ package com.idealparkinglot.idealparkinglot;
 
 import com.idealparkinglot.idealparkinglot.entrance.EntranceGateManager;
 import com.idealparkinglot.idealparkinglot.entrance.TicketManager;
+import com.idealparkinglot.idealparkinglot.exitgate.ExitGateManager;
 import com.idealparkinglot.idealparkinglot.parkingSpot.FourWheelerParkingSpot;
 import com.idealparkinglot.idealparkinglot.parkingSpot.ParkingSpot;
 import com.idealparkinglot.idealparkinglot.parkingSpot.TwoWheelerParkingSpot;
 import com.idealparkinglot.idealparkinglot.parkingspotmanager.FourWheelerParkingSpotManagerFactory;
 import com.idealparkinglot.idealparkinglot.parkingspotmanager.TwoWheelerParkingSpotManagerFactory;
 import com.idealparkinglot.idealparkinglot.parkingspotmanager.TwoWheelerSpotManager;
+import com.idealparkinglot.idealparkinglot.payment.Card;
 //import com.idealparkinglot.idealparkinglot.vehicle.FourWheeler;
 import com.idealparkinglot.idealparkinglot.vehicle.FourWheelerFactory;
 //import com.idealparkinglot.idealparkinglot.vehicle.TwoWheeler;
@@ -43,6 +45,7 @@ public class ParkingLot {
         }
         EntranceGateManager gateManager=new EntranceGateManager(twoWheelerSpots,fourWheelerSpots);
         TicketManager ticketManager=new TicketManager(gateManager);
+        ExitGateManager exitGateManager=new ExitGateManager(gateManager);
         Person twoWheelerClient=new Person(twoWheelerFactory, 123, "Splender");
         Vehicle twoWheeler=twoWheelerClient.getVehicle();
         
@@ -73,8 +76,19 @@ public class ParkingLot {
         gateManager.setVehicle(twoWheeler4);
         ticketManager.createTicket();
 
-        
+        exitGateManager.unParkVehicle(1, twoWheeler, new Card());
 
+        Person twoWheelerClient5=new Person(twoWheelerFactory, 131415, "Hero-Honda");
+        Vehicle twoWheeler5=twoWheelerClient5.getVehicle();
+        
+        gateManager.setVehicle(twoWheeler5);
+        ticketManager.createTicket();
+
+        Person twoWheelerClient6=new Person(twoWheelerFactory, 131415, "Hero-Honda");
+        Vehicle twoWheeler6=twoWheelerClient6.getVehicle();
+        
+        gateManager.setVehicle(twoWheeler6);
+        ticketManager.createTicket();
 
        
         

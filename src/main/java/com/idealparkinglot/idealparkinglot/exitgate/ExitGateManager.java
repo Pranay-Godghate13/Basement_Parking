@@ -23,6 +23,6 @@ public class ExitGateManager {
         ParkingSpotManager spotManager=entranceGateManager.getParkingSpotManager();
         ParkingSpot spots[]=spotManager.geParkingSpot();
         paymentCalculatorManager=new PaymentCalculatorManager(spots[spot].getPrice(),paymentStrategy);
-        spots[spot].unparkVehicle();
+        spots[spot-1].unparkVehicle();
     }
 }
