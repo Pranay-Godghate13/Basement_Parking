@@ -1,6 +1,7 @@
 package com.idealparkinglot.idealparkinglot;
 
 import com.idealparkinglot.idealparkinglot.entrance.EntranceGateManager;
+import com.idealparkinglot.idealparkinglot.entrance.TicketManager;
 import com.idealparkinglot.idealparkinglot.parkingSpot.FourWheelerParkingSpot;
 import com.idealparkinglot.idealparkinglot.parkingSpot.ParkingSpot;
 import com.idealparkinglot.idealparkinglot.parkingSpot.TwoWheelerParkingSpot;
@@ -41,41 +42,38 @@ public class ParkingLot {
             fourWheelerSpots[i].setIsEmpty(true);
         }
         EntranceGateManager gateManager=new EntranceGateManager(twoWheelerSpots,fourWheelerSpots);
+        TicketManager ticketManager=new TicketManager(gateManager);
         Person twoWheelerClient=new Person(twoWheelerFactory, 123, "Splender");
         Vehicle twoWheeler=twoWheelerClient.getVehicle();
         
         gateManager.setVehicle(twoWheeler);
-        gateManager.createTicket();
+        ticketManager.createTicket();
 
         Person fourWheelerClient=new Person(fourWheelerFactory, 456, "Nano");
         Vehicle fourWheeler=fourWheelerClient.getVehicle();
 
         gateManager.setVehicle(fourWheeler);
-        gateManager.createTicket();
+        ticketManager.createTicket();
 
         Person twoWheelerClient2=new Person(twoWheelerFactory, 789, "Hero-Honda");
         Vehicle twoWheeler2=twoWheelerClient2.getVehicle();
         
         gateManager.setVehicle(twoWheeler2);
-        gateManager.createTicket();
+        ticketManager.createTicket();
 
         Person twoWheelerClient3=new Person(twoWheelerFactory, 101112, "Hero-Honda");
         Vehicle twoWheeler3=twoWheelerClient3.getVehicle();
         
         gateManager.setVehicle(twoWheeler3);
-        gateManager.createTicket();
+        ticketManager.createTicket();
 
         Person twoWheelerClient4=new Person(twoWheelerFactory, 131415, "Hero-Honda");
         Vehicle twoWheeler4=twoWheelerClient4.getVehicle();
         
         gateManager.setVehicle(twoWheeler4);
-        gateManager.createTicket();
+        ticketManager.createTicket();
 
-        Person twoWheelerClient5=new Person(twoWheelerFactory, 161718, "Hero-Honda");
-        Vehicle twoWheeler5=twoWheelerClient5.getVehicle();
         
-        gateManager.setVehicle(twoWheeler5);
-        gateManager.createTicket();
 
 
        

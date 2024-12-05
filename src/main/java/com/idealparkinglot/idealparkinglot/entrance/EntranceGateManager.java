@@ -15,8 +15,9 @@ public class EntranceGateManager {
     private Vehicle vehicle;
     private ParkingSpotManager parkingSpotManager;
     Ticket ticket;
-    ParkingSpot twoWheeler[];
-    ParkingSpot fourWheeler[];
+    private ParkingSpot twoWheeler[];
+    private ParkingSpot fourWheeler[];
+    TicketManager ticketManager;
    /*  public EntranceGateManager(Vehicle vehicle,ParkingSpotManagerFactory parkingSpotManagerFactory)
     {
         this.vehicle=vehicle;
@@ -24,18 +25,35 @@ public class EntranceGateManager {
     }*/
     public EntranceGateManager(ParkingSpot twoWheeler[],ParkingSpot fourWheeler[])
     {
+        setTwoWheeler(twoWheeler);
+        setFourWheeler(fourWheeler);
+        
+    }
+    public void setTwoWheeler(ParkingSpot twoWheeler[])
+    {
         this.twoWheeler=twoWheeler;
+    }
+    public ParkingSpot[] getTwoWheeler()
+    {
+        return twoWheeler;
+    }
+    public void setFourWheeler(ParkingSpot fourWheeler[])
+    {
         this.fourWheeler=fourWheeler;
+    }
+    public ParkingSpot[] getFourWheeler()
+    {
+        return fourWheeler;
     }
     public void setVehicle(Vehicle vehicle)
     {
         this.vehicle=vehicle;
         switch (vehicle.getType()) {
             case "Two Wheeler":
-                setParkingSpotManager(new TwoWheelerSpotManager(twoWheeler));
+                setParkingSpotManager(new TwoWheelerSpotManager(getTwoWheeler()));
                 break;
             case "Four Wheeler":
-                setParkingSpotManager(new FourWheelerSpotManager(fourWheeler));
+                setParkingSpotManager(new FourWheelerSpotManager(getFourWheeler()));
                 break;
             default:
                 break;
@@ -59,16 +77,5 @@ public class EntranceGateManager {
         int result=getParkingSpotManager().findParkingSpace(getVehicle());
         return result;
     }
-    public void createTicket()
-    {
-        int spot=findParkingSpace();
-        if(spot==-1)
-        System.out.println("Sorry parking is full. Do visit again.");
-        else
-        {
-            ticket=new CreateTicket("RHB", spot, vehicle);
-            ticket.createTicket("RHB", spot, vehicle);
-        }
-    }
-
+    
 }

@@ -7,10 +7,18 @@ import com.idealparkinglot.idealparkinglot.vehicle.Vehicle;
 
 
 public class ParkingSpotManager {
-    ParkingSpot parkingSpots[];
+    private ParkingSpot parkingSpots[];
     public ParkingSpotManager(ParkingSpot parkingSpots[])
     {
+        setParkingSpot(parkingSpots);
+    }
+    public void setParkingSpot(ParkingSpot parkingSpots[])
+    {
         this.parkingSpots=parkingSpots;
+    }
+    public ParkingSpot[] geParkingSpot()
+    {
+        return parkingSpots;
     }
     public int findParkingSpace(Vehicle vehicle)
     {
