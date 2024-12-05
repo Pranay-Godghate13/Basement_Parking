@@ -20,20 +20,23 @@ public class ParkingLot {
         VehicleFactory twoWheelerFactory=new TwoWheelerFactory();
         VehicleFactory fourWheelerFactory=new FourWheelerFactory();
         
-        ParkingSpot twoWheelerParkingSpot=new TwoWheelerParkingSpot(10);
-        ParkingSpot fourWheelerParkingSpot=new FourWheelerParkingSpot(20);
+        //Creating  two and four wheeler spot for parking.
+        //ParkingSpot twoWheelerParkingSpot=new TwoWheelerParkingSpot(10);
+        //ParkingSpot fourWheelerParkingSpot=new FourWheelerParkingSpot(20);
         
+        //Aloting parking spot for two wheeler and four wheeler vehicle
         ParkingSpot twoWheelerSpots[]=new ParkingSpot[4];
         ParkingSpot fourWheelerSpots[]=new ParkingSpot[2];
+
         for(int i=0;i<twoWheelerSpots.length;i++)
         {
-            twoWheelerSpots[i]=twoWheelerParkingSpot;
+            twoWheelerSpots[i]=new TwoWheelerParkingSpot(10);
             twoWheelerSpots[i].setId(i);
             twoWheelerSpots[i].setIsEmpty(true);
         }
         for(int i=0;i<fourWheelerSpots.length;i++)
         {
-            fourWheelerSpots[i]=fourWheelerParkingSpot;
+            fourWheelerSpots[i]=new FourWheelerParkingSpot(20);
             fourWheelerSpots[i].setId(i);
             fourWheelerSpots[i].setIsEmpty(true);
         }

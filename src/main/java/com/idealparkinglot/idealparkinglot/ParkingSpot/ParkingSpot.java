@@ -6,7 +6,7 @@ public class ParkingSpot {
     private int id;
     Vehicle vehicle;
     double price;
-    private boolean isEmpty=false;
+    private boolean isEmpty=true;
     
     public ParkingSpot(double price)
     {
