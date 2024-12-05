@@ -1,20 +1,21 @@
 package com.idealparkinglot.idealparkinglot.parkingSpot;
 
 import com.idealparkinglot.idealparkinglot.vehicle.Vehicle;
-
+import java.time.LocalTime;
 public class ParkingSpot {
     private int id;
     Vehicle vehicle;
     double price;
     private boolean isEmpty=true;
-    
+    LocalTime currTime;   
     public ParkingSpot(double price)
     {
-        this.price=price;
+        setPrice(price);
     }
     public void parkVehicle(Vehicle vehicle)
     {
         this.vehicle=vehicle;
+        
         setIsEmpty(false);
     } 
     public void unparkVehicle()
@@ -38,5 +39,14 @@ public class ParkingSpot {
     {
         return isEmpty;
     }
+    public void setPrice(double price)
+    {
+        this.price=price;
+    }
+    public double getPrice()
+    {
+        return price;
+    }
+    
 
 }
